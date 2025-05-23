@@ -1,0 +1,55 @@
+<PROJECT_TREE>
+`app/` contains source code for the `iommi` project with subdirectories:
+- `.idea/` (IDE configuration)
+- `docs/` (Sphinx documentation)
+- `examples/` (Django example project)
+- `iommi/` (library source code)
+- `logo.pxd/` (image data)
+- `tests/` (test suite)
+Key top-level files include `requirements.txt`, `test_requirements.txt`, `venv_requirements.txt`,
+`setup.py`, `setup.cfg`, `pyproject.toml`, and `Makefile`.
+</PROJECT_TREE>
+
+<LANGUAGE_DETECTED>
+Python dominates the repository with over 200 `.py` files. There are also
+HTML templates, reStructuredText documentation, XML, JavaScript, CSS, SVG, PNG
+and other assorted assets.
+</LANGUAGE_DETECTED>
+
+<DEPENDENCY_FILES>
+- `requirements.txt` – runtime requirement: `pyparsing`
+- `test_requirements.txt` – packages for tests such as `pytest`, `beautifulsoup4`
+- `docs/requirements.txt` – documentation dependencies (sphinx, furo, etc.)
+- `venv_requirements.txt` – references `test_requirements.txt`
+- `pyproject.toml` – configuration for Ruff
+- `setup.cfg` and `setup.py` – Python packaging and test configuration
+</DEPENDENCY_FILES>
+
+<BUILD_RUN_SCRIPTS>
+- `Makefile` – tasks for linting (`ruff`), testing, documentation build and
+  running examples (`run-examples`).
+- `docs/Makefile` – Sphinx documentation build commands.
+- `examples/manage.py` – Django management script with shebang.
+- `setup.py` – packaging and custom commands (`tag`, `release_check`).
+</BUILD_RUN_SCRIPTS>
+
+<README_INSTALL>
+From `docs/test_doc_getting_started.py`:
+1. Install with `pip install iommi`.
+2. Add `'iommi'` to `INSTALLED_APPS` in your Django settings.
+3. Add iommi middleware (live_edit, sql_trace, profiling, then `iommi.middleware`) at the end of `MIDDLEWARE`.
+The README also shows how to run tests using:
+`make venv && source venv/bin/activate && make test && make test-docs`
+</README_INSTALL>
+
+<ENV_VARS>
+- `DJANGO_SETTINGS_MODULE` – set in examples, tests and documentation.
+- `READTHEDOCS_CANONICAL_URL` and `READTHEDOCS` – used in `docs/conf.py`.
+- `SPHINXBUILD` – configurable in `docs/Makefile` for Sphinx builds.
+- `PYTHONUNBUFFERED` – set in `.idea/runConfigurations/Examples.xml`.
+</ENV_VARS>
+
+<PORTS_SERVICES>
+- Port `8001` – configured for the Django server in `.idea/runConfigurations/Examples.xml`.
+- Port `10331` – used by `Makefile` to serve built documentation with `python -m http.server`.
+</PORTS_SERVICES>
