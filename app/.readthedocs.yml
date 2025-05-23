@@ -1,0 +1,19 @@
+version: 2
+
+# Build documentation in the docs/ directory with Sphinx
+sphinx:
+  configuration: docs/conf.py
+
+# Optionally set the version of Python and requirements required to build your docs
+python:
+  install:
+    - requirements: docs/requirements.txt
+
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11"
+  jobs:
+    post_build:
+      - cp "iommi/static/js/iommi.js" "$READTHEDOCS_OUTPUT/html/_static/"
